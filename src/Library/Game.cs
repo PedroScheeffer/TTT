@@ -26,7 +26,7 @@ namespace TTT
             StartGame();
         }
 
-        private static void StartGame()
+        public static void StartGame()
         {
             Console.WriteLine("Welcome to Tic Tac Toe!");
             EnumStates gameState = EnumStates.Start;
@@ -63,16 +63,16 @@ namespace TTT
         // Pseudo toma el array board lo separa en dos bitmaps uno para cada jugador, revisa si hay alguno con 3 en linea
         // si lo hay, devuelve el ganador o drawn si los dos jugadores consiguieron al mismo tiempo
         // si no existe pasa takingTurns
-        private  string GameOver()
+        public  string GameOver()
         {
-            int[] oPlayerPices = board.board.GetBoardPlayer(oPlayer);
-            int[] xPlayerPices = board.board.GetBoardPlayer(xPlayer);
-            throw new NotImplementedException();
+            bool[,] oPlayerPices = board.GetBitTablePlayer(oPlayer);
+            bool[,] xPlayerPices = board.GetBitTablePlayer(xPlayer);
+
         }
 
         // Check the moves and if viable make them, otherwise move to next turn. 
         // TODO: create Tests
-        private string MakeMoves()
+        public string MakeMoves()
         {
             if(!xPlayer.HasMove() && !oPlayer.HasMove())
             { 
@@ -89,7 +89,7 @@ namespace TTT
 
         // Takes a char and int and returns the x and y value as a int[x,y]
         // TODO: create test
-        private void TakeMoves()
+        public void TakeMoves()
         {
             String newMove = "";
             Console.WriteLine("Enter your turn (player and move)");
