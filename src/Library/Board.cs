@@ -5,6 +5,9 @@ namespace TTT
     public class Board
     {
         public char[,] board = new char[3, 3];
+        public Board(){
+
+        }
         /*
          *   3 
          *   2

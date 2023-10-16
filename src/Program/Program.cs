@@ -6,7 +6,7 @@ namespace TTT
     {
         static void Main(string[] args)
         {
-            Game game = new Game();
+            BaseGame game = new BaseGame();
             
 
         }

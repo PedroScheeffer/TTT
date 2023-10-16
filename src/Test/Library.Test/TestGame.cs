@@ -6,7 +6,7 @@ namespace TTT
     {
         [Test]
         public void testCreateBoard(){
-            int result = Game.NewGame().GetBoard().lenght;
+            int result = BaseGame.GetBoard().lenght;
             int expected = 9;
 
              
