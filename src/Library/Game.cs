@@ -3,7 +3,10 @@ namespace TTT
 {
     public abstract class BaseGame : IGame
     {
-        private Board board;
+        public Board board{
+            get;
+            private set;
+        }
         public Player xPlayer{
             get;
             private set;
