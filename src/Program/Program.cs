@@ -6,9 +6,8 @@ namespace TTT
     {
         static void Main(string[] args)
         {
-            BaseGame game = new BaseGame();
-            
-
+            CLI_Game game = new();
+            game.StartGame();
         }
     }
 }
