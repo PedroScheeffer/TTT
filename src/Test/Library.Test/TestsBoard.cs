@@ -48,8 +48,8 @@ namespace TTT
             board.MakeMove(xPlayerMove, yPlayerMove);
 
             // Assert
-            Assert.AreEqual('x', board.board[0, 0]);
-            Assert.AreEqual('o', board.board[1, 1]);
+            Assert.AreEqual('x', board.gameGrid[0, 0]);
+            Assert.AreEqual('o', board.gameGrid[1, 1]);
         }
         [Test]
         public void MakeMove_inValidMoves()
@@ -60,9 +60,9 @@ namespace TTT
             var yPlayerMove = new Move(4, 2);
 
             // Act
-            char[,] expected = board.board;
+            char[,] expected = board.gameGrid;
             board.MakeMove(xPlayerMove, yPlayerMove);
-            var actual = board.board;
+            var actual = board.gameGrid;
 
             // Assert
             Assert.AreEqual(actual, expected);

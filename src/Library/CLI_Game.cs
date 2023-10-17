@@ -16,6 +16,7 @@ namespace TTT
                         gameState = EnumStates.TakingTurns;
                         break;
                     case EnumStates.TakingTurns:
+                        printBoard();
                         this.TakeMoves();
                         gameState = EnumStates.Move;
                         break;
@@ -58,9 +59,19 @@ namespace TTT
                         Console.WriteLine("Invalid move");
                     }
                 }
-
             }
-
+        }
+        public void printBoard(){
+            for (int x = 0; x < board.gameGrid.GetLength(0); x++)
+            {
+                Console.Write((3 - x) + " ");
+                for (int y = 0; y < board.gameGrid.GetLength(1); y++)
+                {
+                    Console.Write(board.gameGrid[x, y] + " ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("  a b c");
         }
     }
 }

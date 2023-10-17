@@ -4,7 +4,7 @@ namespace TTT
 {
     public class Board
     {
-        public char[,] board = new char[3, 3];
+        public char[,] gameGrid = new char[3, 3];
         public Board(){
 
         }
@@ -23,19 +23,19 @@ namespace TTT
             if(xPlayerMove.isValid() == false || yPlayerMove.isValid() == false){
                 return;
             }
-            board[xPlayerMove.GetValueX(), xPlayerMove.GetValueY()] = 'x';
-            board[yPlayerMove.GetValueX(), yPlayerMove.GetValueY()] = 'o';
+            gameGrid[xPlayerMove.GetValueX(), xPlayerMove.GetValueY()] = 'x';
+            gameGrid[yPlayerMove.GetValueX(), yPlayerMove.GetValueY()] = 'o';
         }
 
         public bool[,] GetBitTablePlayer(Player player)
         {
             bool[,] playerBidTable = new bool[3, 3];
             
-            for (int x = 0; x < board.GetLength(0); x++)
+            for (int x = 0; x < gameGrid.GetLength(0); x++)
             {
-                for (int y = 0; y < board.GetLength(1); y++)
+                for (int y = 0; y < gameGrid.GetLength(1); y++)
                 {
-                    if (board[x, y] == player.GetPlayerPiece())
+                    if (gameGrid[x, y] == player.GetPlayerPiece())
                     {
                         playerBidTable[x, y] = true;
                     } 
@@ -43,6 +43,12 @@ namespace TTT
                 }
             }
             return playerBidTable;
+        }
+
+        internal void printBoard()
+        {
+
+            throw new NotImplementedException();
         }
     }
 }
