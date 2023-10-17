@@ -4,35 +4,42 @@ namespace TTT
     {
         // 1 white 0 black
         EnumPlayer color;
-        Move nextMove;
+        Move? nextMove;
         public Player(string player)
         {
-            if(player == "x"){
+            if(player.ToLower() == "x"){
                 color = EnumPlayer.xPlayer; 
-            }else
+            }
+            if(player.ToLower() == "o")
             {
                 color = EnumPlayer.oPlayer;
             }
         }
 
         public Move GetNextMove(){
+            if(nextMove == null){
+                
+            }
             return nextMove;
         }
         public void SetNextMove(string nextMove){
             this.nextMove = StringToMove(nextMove);
         }
         public bool HasMove(){
+            if(nextMove == null){
+                return false;
+            }
             return nextMove.isValid();
         }
 
-        public char? GetPlayerPiece(){
+        public char GetPlayerPiece(){
             if(color == EnumPlayer.xPlayer){
                 return 'x';
             }
             if(color == EnumPlayer.oPlayer){
                 return 'o';
             }
-            return null;
+            return ' ';
         }
         private Move StringToMove(string turn)
         {

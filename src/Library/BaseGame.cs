@@ -35,7 +35,7 @@ namespace TTT
         {
             bool[,] oPlayerPices = board.GetBitTablePlayer(oPlayer);
             bool[,] xPlayerPices = board.GetBitTablePlayer(xPlayer);
-
+            return "";
         }
 
         // Check the moves and if viable make them, otherwise move to next turn. 

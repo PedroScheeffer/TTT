@@ -1,8 +1,8 @@
 namespace TTT{
     public class Move
     {
-        private int valueX = -1; 
-        private int valueY = -1;
+        private int valueX; 
+        private int valueY;
         public Move(int x, int y){
             valueX = x;
             valueY = y;

@@ -62,10 +62,5 @@ namespace TTT
             }
 
         }
-
-        public override void TakeMoves()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

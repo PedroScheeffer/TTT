@@ -29,11 +29,6 @@ namespace TTT
 
         public bool[,] GetBitTablePlayer(Player player)
         {
-            if (player.GetPlayerPiece() == null)
-            {
-                return null;
-            }
-
             bool[,] playerBidTable = new bool[3, 3];
             
             for (int x = 0; x < board.GetLength(0); x++)
