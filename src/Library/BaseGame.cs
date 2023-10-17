@@ -21,8 +21,6 @@ namespace TTT
             board = new Board();
             oPlayer = new Player("o");
             xPlayer = new Player("x");
-
-            StartGame();
         }
 
         public abstract void StartGame();
