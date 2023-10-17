@@ -36,7 +36,7 @@ namespace TTT
         }
         // Takes a char and int and returns the x and y value as a int[x,y]
         // TODO: create test
-        public void TakeMoves()
+        override public void TakeMoves()
         {
             String newMove = "";
             Console.WriteLine("Enter your turn (player and move)");
