@@ -23,7 +23,7 @@ namespace TTT
             return nextMove;
         }
         public void SetNextMove(string nextMove){
-            this.nextMove = StringToMove(nextMove);
+            this.nextMove = StringToMove(nextMove.ToLower());
         }
         public bool HasMove(){
             if(nextMove == null){
@@ -61,9 +61,7 @@ namespace TTT
         // gets a Char and makes it to a letter [a, b, c] -> [1, 2, 3]
         private int LetterToInt(char letter)
         {
-            return char.ToUpper(letter) - 64;//index == 1
+            return char.ToUpper(letter) - 64; //index == 1
         }
-
-
     }
 }

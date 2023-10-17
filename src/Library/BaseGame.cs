@@ -33,7 +33,7 @@ namespace TTT
         {
             bool[,] oPlayerPices = board.GetBitTablePlayer(oPlayer);
             bool[,] xPlayerPices = board.GetBitTablePlayer(xPlayer);
-            return "";
+            return "playing";
         }
 
         // Check the moves and if viable make them, otherwise move to next turn. 
@@ -50,6 +50,8 @@ namespace TTT
                 return "move colide";
             }
             this.board.MakeMove(xPlayer.GetNextMove(), oPlayer.GetNextMove());
+            xPlayer.SetNextMove(null);
+            oPlayer.SetNextMove(null);
             return "move made";
         }
 

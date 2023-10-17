@@ -39,29 +39,44 @@ namespace TTT
         // TODO: create test
         override public void TakeMoves()
         {
-            String newMove = "";
+            string newMove;
             Console.WriteLine("Enter your turn (player and move)");
-            while (!xPlayer.HasMove() && !oPlayer.HasMove())
+            while (true)
             {
-                newMove = Console.ReadLine().ToLower();
-                if (newMove.Contains('x'))
+                newMove = Console.ReadLine()?.ToLower();
+                if (newMove != null)
                 {
-                    xPlayer.SetNextMove(newMove);
-                }
-                else
-                {
-                    if (newMove.Contains("o"))
+                    if (newMove.Contains('x'))
+                    {
+                        xPlayer.SetNextMove(newMove);
+                    }
+                    else if (newMove.Contains('o'))
                     {
                         oPlayer.SetNextMove(newMove);
                     }
                     else
                     {
-                        Console.WriteLine("Invalid move");
+                        Console.WriteLine("Invalid move. Please enter a move for player 'x' or 'o'.");
+                        continue;  // Vuelve al inicio del bucle
                     }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid move");
+                }
+                if (xPlayer.HasMove() && oPlayer.HasMove())
+                {
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine("Waiting for the other player's move...");
                 }
             }
         }
-        public void printBoard(){
+
+        public void printBoard()
+        {
             for (int x = 0; x < board.gameGrid.GetLength(0); x++)
             {
                 Console.Write((3 - x) + " ");
@@ -71,7 +86,7 @@ namespace TTT
                 }
                 Console.WriteLine();
             }
-            Console.WriteLine("  a b c");
+            Console.WriteLine("  a  b  c");
         }
     }
 }
