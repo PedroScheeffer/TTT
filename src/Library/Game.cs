@@ -4,8 +4,14 @@ namespace TTT
     public abstract class BaseGame : IGame
     {
         private Board board;
-        private Player xPlayer;
-        private Player oPlayer;
+        public Player xPlayer{
+            get;
+            private set;
+        }
+        public Player oPlayer{
+            get;
+            private set;
+        }
 
         public BaseGame()
         {
