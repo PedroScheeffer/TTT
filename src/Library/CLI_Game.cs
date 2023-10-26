@@ -11,8 +11,8 @@ namespace TTT
                 switch (gameState)
                 {
                     case EnumStates.Start:
-                        Console.WriteLine("Welcom to TTT Synchronus\n bot players take turns and them they are played a the same time.");
-                        Console.WriteLine("to take your turn write x or o and the row and column: x a1");
+                        Console.WriteLine("Welcom to TTT Synchronus\nbot players take turns and them they are played a the same time.");
+                        Console.WriteLine("to take your turn write x or o \nand the row and column: x a1");
                         gameState = EnumStates.TakingTurns;
                         break;
                     case EnumStates.TakingTurns:
