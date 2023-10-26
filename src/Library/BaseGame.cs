@@ -41,6 +41,7 @@ namespace TTT
         public string MakeMoves()
         {
             if(!xPlayer.HasMove() && !oPlayer.HasMove())
+            
             { 
                 return "no moves";
             }

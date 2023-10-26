@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
 namespace TTT
@@ -74,6 +75,7 @@ namespace TTT
             // y value
             y = int.Parse(move[1][1].ToString()) - 1;
             Move newMove = new Move(x, y);
+            Debug.WriteLine("set new move to " + newMove.ToString());
             return newMove;
         }
 

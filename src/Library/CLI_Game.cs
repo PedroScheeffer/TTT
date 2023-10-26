@@ -2,39 +2,48 @@ namespace TTT
 {
     public class CLI_Game : BaseGame
     {
-        override public void StartGame()
+override public void StartGame()
+{
+    Console.WriteLine("Welcome to Tic Tac Toe!");
+
+    EnumStates gameState = EnumStates.Start;
+
+    while (gameState != EnumStates.End)
+    {
+        switch (gameState)
         {
-            Console.WriteLine("Welcome to Tic Tac Toe!");
-            EnumStates gameState = EnumStates.Start;
-            while (gameState != EnumStates.End)
-            {
-                switch (gameState)
+            case EnumStates.Start:
+                Console.WriteLine("Welcome to TTT Synchronous");
+                Console.WriteLine("Bot players take turns and then they are played at the same time.");
+                Console.WriteLine("To take your turn, write x or o and the row and column: x a1");
+                gameState = EnumStates.TakingTurns;
+                break;
+
+            case EnumStates.TakingTurns:
+                printBoard();
+                this.TakeMoves();
+                gameState = EnumStates.Move;
+                break;
+
+            case EnumStates.Move:
+                this.MakeMoves();
+
+                if (this.GameOver() != "playing")
                 {
-                    case EnumStates.Start:
-                        Console.WriteLine("Welcom to TTT Synchronus\nbot players take turns and them they are played a the same time.");
-                        Console.WriteLine("to take your turn write x or o \nand the row and column: x a1");
-                        gameState = EnumStates.TakingTurns;
-                        break;
-                    case EnumStates.TakingTurns:
-                        printBoard();
-                        this.TakeMoves();
-                        gameState = EnumStates.Move;
-                        break;
-                    case EnumStates.Move:
-                        this.MakeMoves();
-                        if (this.GameOver() != "playing")
-                        {
-                            gameState = EnumStates.End;
-                            break;
-                        }
-                        gameState = EnumStates.TakingTurns;
-                        break;
-                    default:
-                        gameState = EnumStates.End;
-                        break;
+                    gameState = EnumStates.End;
                 }
-            }
+                else
+                {
+                    gameState = EnumStates.TakingTurns;
+                }
+                break;
+
+            default:
+                gameState = EnumStates.End;
+                break;
         }
+    }
+}
         // Takes a char and int and returns the x and y value as a int[x,y]
         // TODO: create test
         override public void TakeMoves()

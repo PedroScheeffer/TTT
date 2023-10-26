@@ -18,5 +18,8 @@ namespace TTT{
             bool yValid = (valueY >= 0 && valueY < 3);
             return  xValid && yValid;
         }
+        override public string ToString(){
+            return valueX + " " + valueY;
+        }
     }
 }
