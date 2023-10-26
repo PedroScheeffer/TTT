@@ -50,8 +50,8 @@ namespace TTT
                 return "move colide";
             }
             this.board.MakeMove(xPlayer.GetNextMove(), oPlayer.GetNextMove());
-            xPlayer.SetNextMove(null);
-            oPlayer.SetNextMove(null);
+            xPlayer.SetNextMove("");
+            oPlayer.SetNextMove("");
             return "move made";
         }
 

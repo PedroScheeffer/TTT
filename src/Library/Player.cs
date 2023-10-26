@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 namespace TTT
 {
     public class Player
@@ -7,43 +9,60 @@ namespace TTT
         Move? nextMove;
         public Player(string player)
         {
-            if(player.ToLower() == "x"){
-                color = EnumPlayer.xPlayer; 
+            if (player.ToLower() == "x")
+            {
+                color = EnumPlayer.xPlayer;
             }
-            if(player.ToLower() == "o")
+            if (player.ToLower() == "o")
             {
                 color = EnumPlayer.oPlayer;
             }
         }
 
-        public Move GetNextMove(){
-            if(nextMove == null){
-                
+        public void SetNextMove(string? nextMove)
+        {
+            if (nextMove == "")
+            {
+                this.nextMove = null;
             }
-            return nextMove;
+            else
+            {
+                this.nextMove = StringToMove(nextMove.ToLower());
+            }
         }
-        public void SetNextMove(string nextMove){
-            this.nextMove = StringToMove(nextMove.ToLower());
-        }
-        public bool HasMove(){
-            if(nextMove == null){
+        public bool HasMove()
+        {
+            if (nextMove == null)
+            {
                 return false;
             }
             return nextMove.isValid();
         }
+        public Move GetNextMove()
+        {
+            return nextMove;
+        }
 
-        public char GetPlayerPiece(){
-            if(color == EnumPlayer.xPlayer){
+        public char GetPlayerPiece()
+        {
+            if (color == EnumPlayer.xPlayer)
+            {
                 return 'x';
             }
-            if(color == EnumPlayer.oPlayer){
+            if (color == EnumPlayer.oPlayer)
+            {
                 return 'o';
             }
             return ' ';
         }
+
+        // Converts a string representation of a turn into a Move object.
+        // the representation should be {player} {move}. 
+        // where player is "x" or "o" and
+        // move is a letter and a number in the range [1,2,3] and [a,b,c]
         private Move StringToMove(string turn)
         {
-            if (turn.Length != 4)
+            if (turn.Length != 4 || !turn.Any("123abcxo".Contains))
             {
                 return null;
             }
