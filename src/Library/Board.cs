@@ -9,10 +9,10 @@ namespace TTT
 
         }
         /*
-         *   3 
-         *   2
-         *   1  
-         *     a b c 
+         *  3 [a3] [b3] [c3]
+         *  2 [a2] [b2] [c2]
+         *  1 [a1] [b1] [c1]
+         *     a   b    c 
          */
 
         public void MakeMove(Move xPlayerMove, Move yPlayerMove)
