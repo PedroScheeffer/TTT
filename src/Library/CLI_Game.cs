@@ -50,6 +50,7 @@ override public void StartGame()
         {
             string newMove;
             Console.WriteLine("Enter your turn (player and move)");
+            this.PrintReferenceBoard();
             while (true)
             {
                 newMove = Console.ReadLine()?.ToLower();
@@ -96,6 +97,14 @@ override public void StartGame()
                 Console.WriteLine();
             }
             Console.WriteLine("  a  b  c");
+        }
+        public void PrintReferenceBoard(){
+            for (int x = 0; x < board.gameGrid.GetLength(0); x++){
+              Console.WriteLine("3 [a3] [b3] [c3]");
+              Console.WriteLine("2 [a2] [b2] [c2]");
+              Console.WriteLine("1 [a1] [b1] [c1]");
+              Console.WriteLine("   a    b    c ");      
+            }
         }
     }
 }
